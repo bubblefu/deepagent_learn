@@ -11,7 +11,7 @@ load_dotenv()
 backend = StateBackend()
 
 model = ChatOpenAI(
-    model=os.environ.get("MODEL_NAME", "zai-org/GLM-5.2"),
+    model=os.environ.get("MODEL_NAME", "Qwen/Qwen2.5-7B-Instruct"),
     api_key=os.environ["SILICONFLOW_API_KEY"],
     base_url="https://api.siliconflow.cn/v1",
 )

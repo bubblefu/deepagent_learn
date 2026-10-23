@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from deepagents import create_deep_agent
-from langchain.agents.middleware import ToolMiddleware
+from langchain.agents.middleware import TodoListMiddleware
 
 load_dotenv()
 
@@ -57,7 +57,7 @@ def convert_currency(amount: float, from_currency: str, to_currency: str = "CNY"
 agent = create_deep_agent(
     model=model,
     tools=[ calculate, convert_currency],
-    middleware=[ToolMiddleware()],
+    middleware=[TodoListMiddleware()],
     system_prompt="""你是一个计算助手，能帮用户做数学运算和货币换算。
                     # You have a get_weather tool to check city weather.
                     # If user asks about weather, CALL get_weather immediately.
